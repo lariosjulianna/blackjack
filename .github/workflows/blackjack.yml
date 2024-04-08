@@ -46,3 +46,9 @@ jobs:
         is_covered=$(awk 'BEGIN { print ('$total_lines' >= '$MIN_COVERAGE_REQUIRED') }')
         echo "Coverage is: $total_lines%"
         exit $is_covered
+
+        - name: Set Up ClangFormat
+      run: sudo apt-get install -y clang-format
+
+    - name: Run ClangFormat
+      run: clang-format --version && clang-format -style=file -output-replacements-xml main.cpp Simulation.cpp | grep "<replacement " && exit 1 || exit 0
