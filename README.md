@@ -3,8 +3,8 @@ Classic black jack!
 
 # Setup
 Download zip file, make sure you are in the folder,
-run g++ main.cpp -o ./b.exe
-./b.exe
+run g++ -std=c++11 -Wall main.cpp Simulation.cpp -o f.exe
+./f.exe
 
 * Only running the main for now as I still need to fix functionality in other cpp and h files
 * Will only compile the main because other files aren't finished
