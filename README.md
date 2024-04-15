@@ -2,12 +2,19 @@
 Classic black jack!
 
 # Setup
+
 Download zip file, make sure you are in the folder,
 run g++ -std=c++11 -Wall main.cpp Simulation.cpp -o f.exe
 ./f.exe
 
-* Only running the main for now as I still need to fix functionality in other cpp and h files
-* Will only compile the main because other files aren't finished
+Open most recent file upload.
+Download files, put them in the same folder.
+Make sure you are in the folder, and
+run g++ main.cpp -o ./b.exe
+./b.exe
+
+
+* Need to fine tune game logic
 
 # Rules
 * Game starts, Dealer distributes 2 cards to themself and Player
