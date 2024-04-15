@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Install g++
       run: sudo apt-get install g++
@@ -31,8 +33,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Install clang-format
       run: sudo apt-get install clang-format
 
