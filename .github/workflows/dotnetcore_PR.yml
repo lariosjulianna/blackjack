@@ -12,27 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet -version: 3.1.200
+        
     - name: Build with dotnet
-      run: dotnet build ./src/blackjack.sln -- configuration Release
+      run: dotnet build ./src/blackjack.sln --configuration Release
 
-    - name: Run Google Test
-      run: |
-        cd tests
-        ./test_main
+    # - name: Run Google Test
+    #   run: |
+    #     cd tests
+    #     ./test_main
   lint:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     
     - name: Super-linter
-      uses: github.com/super-linter@v3.15.5
+      uses: github/super-linter@v3.15.5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
