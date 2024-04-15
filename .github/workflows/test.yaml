@@ -23,7 +23,7 @@ jobs:
         node-version: '20.x'
         
     - name: Build with dotnet
-      run: dotnet build ./src/blackjack.sln --configuration Release
+      run: dotnet build ./src/tests.sln --configuration Release
 
   lint:
 
