@@ -22,6 +22,10 @@ jobs:
     - name: Build with dotnet
       run: dotnet build ./src/blackjack.sln -- configuration Release
 
+    - name: Run Google Test
+      run: |
+        cd tests
+        ./test_main
   lint:
 
     runs-on: ubuntu-latest
