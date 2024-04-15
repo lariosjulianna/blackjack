@@ -2,10 +2,9 @@ name: CI for PRs
 
 on:
   pull_request:
-    paths:
-    - 'srs/**'
-    - 'ARM Template/**'
-    - 'SampleJsonConfig/**'
+    branches: [main]
+
+  workflow_dispatch:
 
 jobs:
   build:
