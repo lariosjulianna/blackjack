@@ -1,0 +1,40 @@
+name: CI for PRs
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install g++
+      run: sudo apt-get install g++
+
+    - name: Install Google Test
+      run: sudo apt-get install libgtest-dev && sudo apt-get install cmake && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libgtest* /usr/lib/
+
+    - name: Build and Run Tests with Google Test
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+        ./runTests
+
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install clang-format
+      run: sudo apt-get install clang-format
+
+    - name: Lint with clang-format
+      run: clang-format -style=file -output-replacements-xml ./src/*.cpp | grep "<replacement" && exit 1 || exit 0
