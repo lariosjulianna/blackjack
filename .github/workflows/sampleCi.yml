@@ -18,7 +18,7 @@ jobs:
       run: sudo apt-get install g++
 
     - name: Install Google Test
-      run: sudo apt-get install libgtest-dev && sudo apt-get install cmake && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libgtest* /usr/lib/
+      run: sudo apt-get install libgtest-dev && sudo apt-get install cmake && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv tests/googletests/libgtest* /usr/lib/
 
     - name: Build and Run Tests with Google Test
       run: |
