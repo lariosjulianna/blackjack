@@ -20,8 +20,12 @@ jobs:
     
     # Step to run linting
     - name: Lint with clang-format
-      run: clang-format -style=file -output-replacements-xml ./Users/julianna/Documents/Se320/blackjack_git/blackjack/*.cpp | grep "<replacement" && exit 1 || exit 0
+      run: clang-format -style=file -output-replacements-xml ./path/to/your/source/*.cpp | grep "<replacement" && exit 1 || exit 0
 
+    # Step to navigate to the directory containing CMakeLists.txt
+    - name: Navigate to project directory
+      run: cd /Users/julianna/Documents/Se320/blackjack_git/blackjack/googletest/googlemock
+    
     # Step to build and run unit tests
     - name: Build and Run Tests with Google Test
       run: |
