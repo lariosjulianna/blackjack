@@ -24,7 +24,7 @@ jobs:
 
     # Step to navigate to the directory containing CMakeLists.txt
     - name: Navigate to project directory
-      run: cd /Users/julianna/Documents/Se320/blackjack_git/blackjack/googletest/googlemock
+      run: cd /Users/julianna/Documents/Se320/blackjack_git/blackjack/googletest/googletest
     
     # Step to build and run unit tests
     - name: Build and Run Tests with Google Test
