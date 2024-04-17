@@ -36,5 +36,6 @@ jobs:
 
     - name: Lint with clang-format
       run: clang-format -style=file -output-replacements-xml ./src/*.cpp | grep "<replacement" && exit 1 || exit 0
-    - name: Lint with clang-format
+
+    - name: Lint with clang-format (Second Run)
       run: clang-format -style=file -output-replacements-xml ./src/*.cpp | grep "<replacement" && exit 1 || exit 0
