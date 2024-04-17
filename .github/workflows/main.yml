@@ -1,0 +1,32 @@
+name: CI for C++ PRs
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    # Step to install necessary dependencies
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ clang-format libgtest-dev cmake
+    
+    # Step to run linting
+    - name: Lint with clang-format
+      run: clang-format -style=file -output-replacements-xml ./Users/julianna/Documents/Se320/blackjack_git/blackjack/*.cpp | grep "<replacement" && exit 1 || exit 0
+
+    # Step to build and run unit tests
+    - name: Build and Run Tests with Google Test
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+        ./runTests
