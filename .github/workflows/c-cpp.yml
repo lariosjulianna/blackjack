@@ -1,0 +1,47 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Step to install necessary dependencies for linting and testing
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ clang-format libgtest-dev cmake
+
+    # Step to run linting
+    - name: Lint with clang-format
+      run: clang-format -style=file -output-replacements-xml ./src/*.cpp | grep "<replacement" && exit 1 || exit 0
+
+    # Step to configure and build the project
+    - name: Configure
+      run: ./configure
+
+    - name: Make
+      run: make
+
+    # Step to run unit tests
+    - name: Unit Tests with Google Test
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+        ./runTests
+
+    # Step to run 'make check' and 'make distcheck'
+    - name: Make check
+      run: make check
+
+    - name: Make distcheck
+      run: make distcheck
