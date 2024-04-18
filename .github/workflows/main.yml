@@ -22,7 +22,7 @@ jobs:
     - name: Lint with clang-format
       run: clang-format -style=file -output-replacements-xml ./Users/julianna/Documents/Se320/blackjack_git/blackjack/*.cpp | grep "<replacement" && exit 1 || exit 0
 
-    # Step to navigate to the directory containing CMakeLists.txt
+    # Step to navigate to the root directory
     - name: Navigate to project directory
       run: cd /Users/julianna/Documents/Se320/blackjack_git/
     
