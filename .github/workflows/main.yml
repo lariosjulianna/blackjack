@@ -20,7 +20,7 @@ jobs:
     
     # Step to run linting
     - name: Lint with clang-format
-      run: clang-format -style=file -output-replacements-xml ./blackjack/*.cpp | grep "<replacement" && exit 1 || exit 0
+      run: clang-format -style=file -output-replacements-xml ./blackjack_git/*.cpp | grep "<replacement" && exit 1 || exit 0
 
     - name: Print current directory
       run: pwd
