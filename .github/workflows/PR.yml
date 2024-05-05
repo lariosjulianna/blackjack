@@ -27,7 +27,7 @@ jobs:
       run: cmake -S . -B build
 
     - name: Build with Make
-      working-directory: googletest
+      working-directory: ./googletest
       run: cmake --build build
 
     - name: Run unit tests
