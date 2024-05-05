@@ -23,7 +23,7 @@ jobs:
       run: clang-format --version && clang-format -i -style=file *.cpp
       
     - name: Set up CMake
-      run: cmake -S ./googletest -B ./googletest/build
+      run: cmake -S . -B ./googletest/build
 
     - name: Build with Make
       run: cmake --build ./googletest/build
