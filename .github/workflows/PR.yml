@@ -20,12 +20,13 @@ jobs:
       run: sudo apt-get install clang-format
 
     - name: Run ClangFormat
-      run: clang-format --version && clang-format -i -style=file .
+      run: clang-format --version && clang-format -i -style=file *.cpp
+      
     - name: Set up CMake
-      run: cmake -S . -B build
+      run: cmake -S ./googletest -B ./googletest/build
 
     - name: Build with Make
-      run: cmake --build build
+      run: cmake --build ./googletest/build
 
     - name: Run unit tests
-      run: ./build/test/unit_tests
+      run: ./googletest/build/test/unit_tests
