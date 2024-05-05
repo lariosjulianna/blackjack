@@ -20,7 +20,7 @@ jobs:
       run: sudo apt-get install clang-format
 
     - name: Run ClangFormat
-      run: clang-format --version && clang-format -i -style=file .
+      run: clang-format --version && clang-format -i -style=file *.cpp
     - name: Set up CMake
       run: cmake -S . -B build
 
