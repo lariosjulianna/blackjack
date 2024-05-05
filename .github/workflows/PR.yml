@@ -22,11 +22,14 @@ jobs:
     - name: Run ClangFormat
       run: clang-format --version && clang-format -i -style=file *.cpp
       
+    - name: Install Dependencies
+      run: brew install googletest
+
     - name: Set up CMake
-      run: cmake -S . -B ./googletest/build
+      run: cmake -B build
 
-    - name: Build with Make
-      run: cmake --build ./googletest/build
+    - name: Build with CMake
+      run: cmake --build build
 
-    - name: Run unit tests
-      run: ./googletest/build/test/unit_tests
+    - name: Run Unit Tests
+      run: ./build/test/unit_tests
