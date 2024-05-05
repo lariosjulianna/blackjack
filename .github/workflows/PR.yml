@@ -24,7 +24,7 @@ jobs:
       
     - name: Set up CMake
       working-directory: ./googletest
-      run: cmake -S . -B build
+      run: cmake -S /home/runner/work/blackjack/googletest -B build
 
     - name: Build with Make
       working-directory: ./googletest
