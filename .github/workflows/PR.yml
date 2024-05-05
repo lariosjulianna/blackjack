@@ -23,12 +23,10 @@ jobs:
       run: clang-format --version && clang-format -i -style=file *.cpp
       
     - name: Set up CMake
-      working-directory: ./googletest
-      run: cmake -S /blackjack/googletest -B build
+      run: cmake -S ./googletest -B ./googletest/build
 
     - name: Build with Make
-      working-directory: ./googletest
-      run: cmake --build build
+      run: cmake --build ./googletest/build
 
     - name: Run unit tests
-      run: ./build/test/unit_tests
+      run: ./googletest/build/test/unit_tests
