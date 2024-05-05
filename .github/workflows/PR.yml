@@ -21,10 +21,13 @@ jobs:
 
     - name: Run ClangFormat
       run: clang-format --version && clang-format -i -style=file *.cpp
+      
     - name: Set up CMake
+      working-directory: googletest
       run: cmake -S . -B build
 
     - name: Build with Make
+      working-directory: googletest
       run: cmake --build build
 
     - name: Run unit tests
